@@ -1,0 +1,418 @@
+body {
+  margin: 0;
+  cursor: url("image/kniv.gif"), auto; /*editer musen*/
+  font-size: sans-serif;
+}
+* {
+  user-select: none;
+}
+h2 {
+  margin: 0;
+  font-size: 5em;
+  text-align: center;
+}
+
+#p2 {
+  font-size: 1em;
+}
+
+p {
+  text-align: center;
+  font-size: 1.5em;
+  margin: 1em 0 1.5em;
+}
+
+#screen {
+  aspect-ratio: 16 / 9;
+  display: grid;
+  grid-template: 100% / 100%;
+}
+
+#game {
+  grid-area: 1 / 1;
+  display: grid;
+  grid-template: 100% / 100%;
+}
+
+#game_elements {
+  grid-area: 1/1;
+  grid-template: 100%/100%;
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.background {
+  overflow: hidden;
+  height: 100vh;
+  background-size: cover;
+  grid-area: 1 /1;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+#red_apple_container {
+  position: absolute;
+  z-index: 1;
+  width: 500px;
+  height: 500px;
+  top: 2%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 30%;
+}
+
+#red_apple_container li {
+  position: absolute;
+  list-style: none;
+  transform-origin: 230px;
+  align-items: center;
+  justify-content: center;
+  left: 5%;
+}
+
+.Red_apple_img {
+  height: 90px;
+  width: 90px;
+}
+
+#bomb_container2,
+#bomb_container1 {
+  border-radius: 50%;
+}
+
+#bomb_sprite1,
+#bomb_sprite2 {
+  background-size: cover;
+  height: 120px;
+  width: 100px;
+  z-index: 4;
+}
+
+/*Animation*/
+
+.rotation1 {
+  animation-name: rotation1;
+  animation-duration: 10s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes rotation1 {
+  0% {
+    transform: rotate(-45deg);
+  }
+
+  10% {
+    transform: rotate(45deg);
+  }
+
+  20% {
+    transform: rotate(-45deg);
+  }
+
+  30% {
+    transform: rotate(-90deg);
+  }
+
+  40% {
+    transform: rotate(-45deg);
+  }
+
+  50% {
+    transform: rotate(-180deg);
+  }
+  60% {
+    transform: rotate(-225deg);
+  }
+
+  70% {
+    transform: rotate(-360deg);
+  }
+
+  80% {
+    transform: rotate(-225deg);
+  }
+
+  90% {
+    transform: rotate(-180deg);
+  }
+
+  100% {
+    transform: rotate(-45deg);
+  }
+}
+
+/*position*/
+
+.position1 {
+  transform: translate(0, 0);
+}
+
+.position2 {
+  transform: translate(50%, -140%);
+}
+
+.position3 {
+  transform: translate(200%, -160%);
+}
+
+.position4 {
+  transform: translate(350%, 0);
+}
+
+.rotation2 {
+  animation-name: rotation2;
+  animation-duration: 8s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.zoom_out {
+  animation-name: zoom_out;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes zoom_out {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+.zoom_in {
+  animation-name: zoom_in;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.scale_in {
+  animation-name: scale_in;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes scale_in {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes zoom_in {
+  0% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  90% {
+    transform: translate(100%, 0) scale(10) rotate(90deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(100%, 0) scale(10) rotate(90deg);
+    opacity: 0;
+  }
+}
+
+.paused {
+  animation-play-state: paused;
+}
+
+.fade_out {
+  animation-name: fade_out;
+  animation-duration: 0.3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+/*Game_iu*/
+
+#life_board {
+  display: grid;
+  grid-template-columns: 1.2em 1.2em 1.2em;
+}
+
+#life_board img {
+  width: 100%;
+}
+
+.active_heart {
+  filter: drop-shadow(0 0 2px rgb(128, 238, 124));
+}
+
+.broken_heart {
+  filter: grayscale(75%) blur(0.5px);
+}
+
+#game_ui {
+  position: absolute;
+  top: 2vw;
+  right: 1vw;
+  color: white;
+  font-size: 2em;
+  font-family: sans-serif;
+  pointer-events: none;
+  z-index: 1;
+  position: fixed;
+}
+
+#score_board {
+  display: grid;
+  grid-template-columns: 4fr 2fr;
+  gap: 0.1em;
+}
+
+#coin_count {
+  white-space: nowrap;
+  text-align: right;
+}
+
+#coin_image {
+  width: 1em;
+}
+
+/*GAME_OVER - LEVELCOMPLETE*/
+
+.hidden,
+#game_over.hidden,
+#level_complete.hidden,
+#start.hidden {
+  display: none;
+}
+
+#game_over {
+  grid-area: 1 /1;
+  z-index: 999;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  background-image: linear-gradient(150deg, #c90303 0%, #790909 100%);
+  color: #ffffff;
+}
+
+#level_complete {
+  grid-area: 1 /1;
+  z-index: 999;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  align-items: top;
+  background-image: linear-gradient(150deg, #20c903 0%, #09793b 100%);
+  color: #ffffff;
+}
+
+#game_over,
+#start,
+#level_complete {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+#start {
+  grid-area: 1 /1;
+  z-index: 999;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  align-items: top;
+  background-image: linear-gradient(150deg, #a60a0a 0%, #ff9317 100%);
+  color: #ffffff;
+}
+
+/*BUTTON*/
+
+@keyframes pulse_kf {
+  0% {
+    transform: scale(0.8);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.pulse {
+  animation-name: pulse_kf;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-direction: alternate;
+}
+
+button {
+  padding: 0.5em 1em;
+  font-size: 2em;
+  margin: auto;
+  background-color: #ffad01;
+  color: #fff4bf;
+  border: 10px solid #ffc72e;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+/* Timer */
+
+#time_board {
+  position: relative;
+}
+
+#time_container {
+  position: absolute;
+  width: 100%;
+  aspect-ratio: 30/6;
+  border: 2px solid black;
+  background-color: rgba(208, 204, 204, 0.383);
+  top: 1.6vh;
+  right: 0.2vw;
+}
+
+#time_sprite {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: limegreen;
+  transform-origin: right;
+}
+
+/* ------------ TIMER ANIMATIONER ------------ */
+
+.shrink {
+  animation-name: shrink_kf;
+  animation-duration: 30s;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes shrink_kf {
+  0% {
+    scale: 1 1;
+    background-color: limegreen;
+  }
+  50% {
+    background-color: rgb(255, 230, 0);
+  }
+  100% {
+    scale: 0 1;
+    background-color: red;
+  }
+}

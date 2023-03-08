@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FruitGame</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="screen">
+      <div id="game">
+        <div class="background">
+          <img src="image/background.png" alt="" />
+        </div>
+        <div id="game_elements">
+          <section id="red_apple_container" class="rotation1">
+            <li style="transform: rotate(360deg)">
+              <div id="red_apple_container1" class="animation">
+                <img
+                  id="red_apple_sprite1"
+                  class="Red_apple_img"
+                  src="image/red-apple.png"
+                />
+              </div>
+            </li>
+            <li style="transform: rotate(90deg)">
+              <div id="red_apple_container2" class="animation">
+                <img
+                  id="red_apple_sprite2"
+                  class="Red_apple_img"
+                  src="image/red-apple.png"
+                />
+              </div>
+            </li>
+            <li style="transform: rotate(135deg)">
+              <div id="red_apple_container3" class="animation">
+                <img
+                  id="red_apple_sprite3"
+                  class="Red_apple_img"
+                  src="image/red-apple.png"
+                />
+              </div>
+            </li>
+            <li style="transform: rotate(180deg)">
+              <div id="red_apple_container4" class="animation">
+                <img
+                  id="red_apple_sprite4"
+                  class="Red_apple_img"
+                  src="image/red-apple.png"
+                />
+              </div>
+            </li>
+            <li style="transform: rotate(225deg)">
+              <div id="red_apple_container5" class="animation">
+                <img
+                  id="red_apple_sprite5"
+                  class="Red_apple_img"
+                  src="image/red-apple.png"
+                />
+              </div>
+            </li>
+            <li style="transform: rotate(270deg)">
+              <div id="red_apple_container6" class="animation">
+                <img
+                  id="red_apple_sprite6"
+                  class="Red_apple_img"
+                  src="image/red-apple.png"
+                />
+              </div>
+            </li>
+            <li style="transform: rotate(315deg)">
+              <div id="red_apple_container7" class="animation">
+                <img
+                  id="red_apple_sprite7"
+                  class="Red_apple_img"
+                  src="image/red-apple.png"
+                />
+              </div>
+            </li>
+            <li style="transform: rotate(45deg)">
+              <div id="red_apple_container8" class="animation">
+                <img
+                  id="red_apple_sprite7"
+                  class="Red_apple_img"
+                  src="image/red-apple.png"
+                />
+              </div>
+            </li>
+            <li></li>
+            <li style="transform: rotate(-25deg)">
+              <div id="bomb_container1" class="animation">
+                <img
+                  id="bomb_sprite1"
+                  class="Red_apple_img"
+                  src="image/bomb01.png"
+                  alt=""
+                />
+              </div>
+            </li>
+            <li style="transform: rotate(-110deg)">
+              <div id="bomb_container2" class="animation">
+                <img
+                  id="bomb_sprite2"
+                  class="Red_apple_img"
+                  src="image/bomb01.png"
+                  alt=""
+                />
+              </div>
+            </li>
+          </section>
+        </div>
+        <div id="game_ui">
+          <div id="score_board">
+            <span id="coin_count">0</span>
+            <img id="coin_image" src="image/coin1.png"" />
+          </div>
+          <div id="life_board">
+            <img id="heart3" src="image/heart.png" class="active_heart" />
+            <img id="heart2" src="image/heart.png" class="active_heart" />
+            <img id="heart1" src="image/heart.png" class="active_heart" />
+          </div>
+          <div id="time_board">
+            <div id="time_container">
+              <div id="time_sprite" class=""></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="start">
+        <h2>FruitSlice</h2>
+        <p>
+          Anna needs 24 apples for her applepie. <br />She needs your help with
+          collecting the apples.🥧🍎<br />
+          can you help?
+        </p>
+        <p id="p2">PSST.. DON'T CLICK ON THE BOMBS💣</p>
+        <button id="btn_start" class="pulse">start</button>
+      </div>
+
+      <div id="game_over" class="hidden">
+        <h2>Game Over😲</h2>
+        <p>YOU LOSE!</p>
+        <button id="btn_restart" class="pulse">restart</button>
+      </div>
+
+      <div id="level_complete" class="hidden">
+        <h2>Level Complete</h2>
+        <p>YAAY!! YOU COLLECTED 24 APPLES🍎 <br />YOU WON!</p>
+        <button id="btn_go_to_start" class="pulse">Go to start</button>
+      </div>
+    </div>
+
+    <section id="sounds">
+      <audio id="sound_fruit" src="sounds/coin.mp3"""></audio>
+      <audio id="sound_bomb" src="sounds/bomb.mp3"></audio>
+      <audio id="sound_background" src="sounds/Background.mp3"></audio>
+      <audio id="sound_levelcomplete" src="sounds/tada.mp3"></audio>
+      <audio id="sound_gameOver" src="sounds/gameOver.mp3"></audio>
+    </section>
+    <script src="script.js"></script>
+  </body>
+</html>
